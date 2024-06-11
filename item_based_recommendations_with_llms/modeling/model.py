@@ -1,17 +1,13 @@
-import re
 from dataclasses import dataclass
 from typing import List
 
 import faiss
+
 from item_based_recommendations_with_llms.data_preparation.hfembeddings import (
     HFEmbeddings,
 )
 from item_based_recommendations_with_llms.utils.constants import HIDDEN_SIZE
-from item_based_recommendations_with_llms.utils.file_paths import (
-    DATA_PATH,
-    INDEX_PATH,
-)
-from transformers import AutoModel, AutoTokenizer
+from item_based_recommendations_with_llms.utils.file_paths import INDEX_PATH
 
 
 @dataclass
@@ -27,12 +23,12 @@ class ItemBasedRecs:
     reference_id: int
 
     @staticmethod
-    def search_index(
-        input_data: List,
+    def _search_index(
+        input_data: List[str],
         index_file: faiss.IndexFlatL2,
         k: int = 1,
         hidden_size: int = HIDDEN_SIZE,
-    ):
+    ) -> List[int]:
         """
         Searches FAISS index
 
@@ -58,7 +54,7 @@ class ItemBasedRecs:
 
         return output
 
-    def recommend(self):
+    def recommend(self) -> List[int]:
         """
         Make recommendations based on reference product id
 
@@ -68,7 +64,7 @@ class ItemBasedRecs:
         index = faiss.load_index(self.index_path)
 
         # Get recommendations
-        recommendations = self.search_index(
+        recommendations = self._search_index(
             input_data=[self.reference_id], index_file=index
         )
 

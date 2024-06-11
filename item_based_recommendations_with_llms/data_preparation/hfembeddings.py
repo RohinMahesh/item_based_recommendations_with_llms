@@ -1,10 +1,10 @@
-import re
 from dataclasses import dataclass
 from typing import List
 
-import numpy
+import numpy as np
 import torch
 from transformers import AutoModel, AutoTokenizer
+
 from item_based_recommendations_with_llms.utils.constants import (
     DEVICE,
     MODEL_CHECKPOINT,
@@ -25,7 +25,7 @@ class HFEmbeddings:
     tokenizer: AutoTokenizer = AutoTokenizer.from_pretrained(MODEL_CHECKPOINT)
     model: AutoModel = AutoModel.from_pretrained(MODEL_CHECKPOINT).to(DEVICE)
 
-    def create_embeddings(self):
+    def create_embeddings(self) -> np.ndarray:
         """
         Tokenizes data and creates embeddings
 

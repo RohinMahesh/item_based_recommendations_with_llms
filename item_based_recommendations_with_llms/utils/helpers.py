@@ -22,7 +22,7 @@ class CleanData:
     html_pattern: re.Pattern = HTML_PATTERN
 
     @staticmethod
-    def remove_product_name(data):
+    def remove_product_name(data) -> str:
         """
         Removes product name from text
 
@@ -39,7 +39,7 @@ class CleanData:
         processed = " ".join(processed)
         return processed
 
-    def clean(self):
+    def clean(self) -> List[str]:
         """
         Performs data cleaning
 
@@ -56,11 +56,12 @@ class CleanData:
         return self.df[TEXT_COLUMN].tolist()
 
 
-def create_index(feature_space: np.ndarray):
+def create_index(feature_space: np.ndarray) -> None:
     """
     Creates FAISS index
 
     :param feature_space: numpy array containing text for feature extraction
+    :returns None
     """
     # Build the index using embedding dimension of OpenAI model
     index = faiss.IndexFlatL2(feature_space.shape[1])
