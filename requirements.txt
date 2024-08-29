@@ -1,6 +1,9 @@
 # Python 3.10.12
-faiss-cpu==1.7.4
-openai==0.27.8
-pandas==1.5.3
-torch @ https://download.pytorch.org/whl/cu118/torch-2.0.1%2Bcu118-cp310-cp310-linux_x86_64.whl#sha256=a7a49d459bf4862f64f7bc1a68beccf8881c2fa9f3e0569608e16ba6f85ebf7b
-transformers==4.31.0
+faiss==1.5.3
+openai==1.43.0
+pandas==2.2.2
+torch==2.2.2
+transformers==4.44.2
+black==24.8.0
+isort==5.13.2
+pytest==8.3.2

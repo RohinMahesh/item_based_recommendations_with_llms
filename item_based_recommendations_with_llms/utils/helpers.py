@@ -5,8 +5,11 @@ from typing import List
 import faiss
 import numpy as np
 import pandas as pd
-from constants import HTML_PATTERN, TEXT_COLUMN
-from file_paths import INDEX_PATH
+from item_based_recommendations_with_llms.utils.constants import (
+    HTML_PATTERN,
+    TEXT_COLUMN,
+)
+from item_based_recommendations_with_llms.utils.file_paths import INDEX_PATH
 
 
 @dataclass
@@ -52,6 +55,10 @@ class CleanData:
         # Remove product name
         self.df[TEXT_COLUMN] = list(
             map(lambda x: __class__.remove_product_name(x), self.df[TEXT_COLUMN])
+        )
+        # Remove extra spaces
+        self.df[TEXT_COLUMN] = list(
+            map(lambda x: " ".join(x.split()), self.df[TEXT_COLUMN])
         )
         return self.df[TEXT_COLUMN].tolist()
 
