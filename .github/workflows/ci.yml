@@ -29,9 +29,9 @@ jobs:
       run: |
         pip install -r requirements.txt
     
-    - name: Install failing deps
+    - name: Install failing dependencies
       run: | 
-        conda install -c conda-forge faiss-cpu==1.5.3
+        conda install pytorch::faiss-cpu -c pytorch -c conda-forge
 
     - name: Run Unit Tests
       run: |
