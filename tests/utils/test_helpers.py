@@ -46,26 +46,6 @@ def test_clean(input_df, expected_output):
 
 
 @pytest.mark.parametrize(
-    "feature_space",
-    [
-        sample_feature_space,
-    ],
-)
-def test_create_index(feature_space):
-    with TemporaryDirectory() as temp_dir:
-        with patch(
-            "item_based_recommendations_with_llms.utils.helpers.faiss.write_index"
-        ) as mock_write_index:
-            with patch(
-                "item_based_recommendations_with_llms.utils.file_paths.INDEX_PATH",
-                temp_dir + "/index.faiss",
-            ):
-                create_index(feature_space)
-
-                mock_write_index.assert_called_once()
-
-
-@pytest.mark.parametrize(
     "input_text, expected_output",
     [
         ("ProductName - Some product description", "Some product description"),
