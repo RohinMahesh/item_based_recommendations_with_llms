@@ -5,7 +5,7 @@ from unittest.mock import MagicMock, patch
 import numpy as np
 import pandas as pd
 import pytest
-from item_based_recommendations_with_llms.utils.helpers import CleanData, create_index
+from item_based_recommendations_with_llms.utils.helpers import CleanData
 
 sample_df = pd.DataFrame(
     {
