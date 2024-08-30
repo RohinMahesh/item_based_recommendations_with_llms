@@ -1,3 +1,8 @@
+import sys
+from unittest import mock
+
+sys.modules["faiss"] = mock.Mock()
+
 import re
 from tempfile import TemporaryDirectory
 from unittest.mock import MagicMock, patch
