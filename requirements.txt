@@ -1,5 +1,5 @@
 # Python 3.10.12
-faiss==1.5.3
+faiss-cpu==1.5.3
 openai==1.43.0
 pandas==2.2.2
 torch==2.2.2
