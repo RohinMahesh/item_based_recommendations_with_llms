@@ -3,6 +3,7 @@ env:
 
 install-deps:
     python -m pip install -r requirements.txt
+    conda install -c conda-forge faiss-cpu
 
 test:
     pytest --log-cli-level=DEBUG --cov=. --cov-report=html

@@ -28,6 +28,10 @@ jobs:
     - name: Install dependencies
       run: |
         pip install -r requirements.txt
+    
+    - name: Install failing dependencies
+      run: | 
+        conda install -c conda-forge faiss-cpu
 
     - name: Run Unit Tests
       run: |
