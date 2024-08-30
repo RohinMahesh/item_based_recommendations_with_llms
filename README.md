@@ -1,5 +1,7 @@
 # Item-Based Recommendations with LLMs
 
+![Build Status](https://github.com/RohinMahesh/item_based_recommendations_with_llms/actions/workflows/ci.yml/badge.svg)
+
 # Background
 
 With the introduction of BERT in 2017 along with the release of ChatGPT in 2022, the interest for Large Language Models (LLM) based solutions is growing aggressively across various domains. While the Question and Answering (Q&A) based offerings from companies like OpenAI are very powerful, another area of opportunity would be to leverage the embeddings from LLMs to serve as a representative function in enhancing downstream recommender systems.
